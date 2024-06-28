@@ -167,26 +167,20 @@ em {
     font-size: 20px;
 }
 
-.grain {
-    position: relative;
-    background-color: var(--color-accent-1);
+.gradient {
     transition:
         background-color,
         filter 0.2s ease-in;
-    overflow: hidden;
-    isolation: isolate;
 
-    &:hover {
-        filter: brightness(110%);
-    }
-}
-
-.gradient {
     background: linear-gradient(
         45deg,
         var(--color-accent-2),
         var(--color-white)
     );
+
+    &:hover {
+        filter: brightness(110%);
+    }
 }
 
 .dark .gradient {

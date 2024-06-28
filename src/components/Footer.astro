@@ -1,9 +1,10 @@
 ---
-import Social from "./Social.astro";
+import RSSLink from "./RSSLink.astro";
 ---
 
 <footer>
     <p>© {new Date().getFullYear()} &middot; Oliwer Iwanicki</p>
+    <RSSLink />
 </footer>
 
 <style>
@@ -14,6 +15,7 @@ import Social from "./Social.astro";
         padding: var(--spacing-6) 0;
         width: 100%;
         max-width: var(--breakpoint);
+        gap: var(--spacing-3);
     }
 
     p {

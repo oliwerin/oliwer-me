@@ -1,20 +1,17 @@
 ---
 import Navigation from "./Navigation.astro";
 import ThemeButton from "./ThemeButton.astro";
-import RSSLink from "./RSSLink.astro";
 ---
 
 <dialog id="hamburger-menu">
-    <div class="controls">
-        <RSSLink />
-        <ThemeButton />
-        <button class="hamburger" aria-label="Close menu">
-            <span class="line"></span>
-            <span class="line"></span>
-        </button>
-    </div>
-
+    <button class="hamburger" aria-label="Close menu">
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
     <Navigation />
+    <div class="controls">
+        <ThemeButton />
+    </div>
 </dialog>
 
 <button class="hamburger" aria-label="Open menu">
@@ -117,7 +114,7 @@ import RSSLink from "./RSSLink.astro";
     .controls {
         display: flex;
         align-items: center;
-        gap: var(--spacing-2);
+        justify-content: flex-end;
         width: 100%;
     }
 </style>
