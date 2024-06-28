@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, heading } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,18 +15,21 @@ const { pageTitle } = Astro.props;
             sizes="180x180"
             href="/apple-touch-icon.png"
         />
+
         <link
             rel="icon"
             type="image/png"
             sizes="32x32"
             href="/favicon-32x32.png"
         />
+
         <link
             rel="icon"
             type="image/png"
             sizes="16x16"
             href="/favicon-16x16.png"
         />
+
         <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,12 +42,20 @@ const { pageTitle } = Astro.props;
 
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+
+        <meta
+            name="theme-color"
+            content="rgb(57, 62, 70)"
+            media="(prefers-color-scheme: dark)"
+        />
+
+        <meta name="theme-color" content="rgb(247, 247, 247)" />
         <title>{pageTitle}</title>
     </head>
     <body>
         <Header />
         <main>
-            <h1>{pageTitle}</h1>
+            <h1>{heading}</h1>
             <slot />
         </main>
         <Footer />

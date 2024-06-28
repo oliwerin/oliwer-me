@@ -1,11 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob("../pages/posts/*.md");
-
-const pageTitle = "Contact";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle="Oliwer Iwanicki | Contact" heading="Contact">
     <p>
         Feel free to get in touch with me if you have any inquiries or
         opportunities.
@@ -19,19 +17,15 @@ const pageTitle = "Contact";
             <a
                 href="https://www.linkedin.com/in/oliwer-iwanicki-a9419994"
                 target="_blank"
-                rel="noopener noreferrer"
-            >
-                LinkedIn
-            </a>&nbsp;&#47;&nbsp;
+                rel="noopener noreferrer">LinkedIn</a
+            >&nbsp;&#47;&nbsp;
         </li>
         <li>
             <a
                 href="https://github.com/oliwerin"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer">GitHub</a
             >
-                GitHub
-            </a>
         </li>
     </ul>
 </BaseLayout>

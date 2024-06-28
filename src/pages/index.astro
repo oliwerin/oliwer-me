@@ -2,11 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Post from "../components/Post.astro";
 
-const pageTitle = "Hi, I’m Oliwer.";
 const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle="Oliwer Iwanicki | Home" heading="Hi, I’m Oliwer.">
     <p>
         I'm a software engineer with over a decade of professional experience
         based in Poznań, Poland.
