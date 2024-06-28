@@ -6,28 +6,20 @@ const {
 } = post;
 ---
 
-<article class="grain">
-    <div class="text">
-        <header>
-            <h3><a href={url}>{title}</a></h3>
-            <span>{pubDate.toString().slice(0, 10)}</span>
-        </header>
-        <main><p>{description}</p></main>
-        <footer><a href={url}>Read more</a></footer>
-    </div>
+<article class="gradient">
+    <header>
+        <h3><a href={url}>{title}</a></h3>
+        <span>{pubDate.toString().slice(0, 10)}</span>
+    </header>
+    <main><p>{description}</p></main>
+    <footer><a href={url}>Read more</a></footer>
 </article>
 
 <style>
     article {
         position: relative;
         border-radius: 6px;
-        color: var(--color-black);
-    }
-
-    .text {
         padding: var(--spacing-5);
-        position: relative;
-        z-index: var(--z-index-10);
     }
 
     header {

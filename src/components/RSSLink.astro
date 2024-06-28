@@ -3,7 +3,7 @@
 ---
 
 <a
-    class="rss-link grain"
+    class="rss-link gradient"
     title="RSS feed"
     aria-label="RSS feed"
     href="/rss.xml"
@@ -46,9 +46,14 @@
         width: 32px;
 
         svg {
+            border-radius: 6px;
             position: relative;
             padding: 3px;
             stroke: var(--color-black);
         }
+    }
+
+    :global(.dark) .rss-link svg {
+        stroke: var(--color-white);
     }
 </style>
