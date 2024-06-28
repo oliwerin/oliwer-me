@@ -3,15 +3,21 @@ import Social from "./Social.astro";
 ---
 
 <footer>
-    <Social platform="twitter" username="astrodotbuild" />
-    <Social platform="github" username="withastro" />
-    <Social platform="youtube" username="astrodotbuild" />
+    <p>© {new Date().getFullYear()} &middot; Oliwer Iwanicki</p>
 </footer>
 
 <style>
     footer {
+        margin-top: auto;
         display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
+        justify-content: flex-end;
+        padding: var(--spacing-6) 0;
+        width: 100%;
+        max-width: var(--breakpoint);
+    }
+
+    p {
+        font-size: 16px;
+        margin: 0;
     }
 </style>

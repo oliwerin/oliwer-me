@@ -1,0 +1,76 @@
+---
+const { post } = Astro.props;
+const {
+    url,
+    frontmatter: { title, pubDate, description },
+} = post;
+---
+
+<article class="grain">
+    <div class="text">
+        <header>
+            <h3><a href={url}>{title}</a></h3>
+            <span>{pubDate.toString().slice(0, 10)}</span>
+        </header>
+        <main><p>{description}</p></main>
+        <footer><a href={url}>Read more</a></footer>
+    </div>
+</article>
+
+<style>
+    article {
+        position: relative;
+        border-radius: 6px;
+        color: var(--color-black);
+    }
+
+    .text {
+        padding: var(--spacing-5);
+        position: relative;
+        z-index: var(--z-index-10);
+    }
+
+    header {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: var(--spacing-1_5);
+
+        @media screen and (min-width: 640px) {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0;
+            margin-bottom: var(--spacing-2);
+        }
+    }
+
+    h3 {
+        margin-bottom: var(--spacing-1_5);
+
+        @media screen and (min-width: 640px) {
+            margin-bottom: 0;
+        }
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: var(--spacing-3);
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+            position: relative;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                background: var(--color-black);
+            }
+        }
+    }
+</style>

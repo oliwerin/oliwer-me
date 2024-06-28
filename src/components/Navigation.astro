@@ -2,9 +2,51 @@
 
 ---
 
-<div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    <a href="/tags/">Tags</a>
-</div>
+<ul>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <!-- <a href="/tags/">Tags</a> -->
+</ul>
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-3);
+
+        @media screen and (min-width: 640px) {
+            flex-direction: row;
+            gap: var(--spacing-5);
+        }
+    }
+
+    li {
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-size: 40px;
+
+        @media screen and (min-width: 640px) {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        &.active {
+            font-weight: 700;
+        }
+    }
+</style>
+
+<script>
+    document.querySelectorAll("header nav ul > li > a").forEach((nav) => {
+        if (nav.pathname === window.location.pathname) {
+            nav.closest("li").classList.add("active");
+        } else {
+            nav.closest("li").classList.remove("active");
+        }
+    });
+</script>

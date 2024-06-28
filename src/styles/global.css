@@ -1,90 +1,205 @@
-html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
-}
+:root {
+    /* https://colorhunt.co/palette/eeedebe0ccbe7472643c3633 */
+    --color-black: rgb(60, 54, 51);
+    --color-accent-1: rgb(224, 204, 190);
+    --color-accent-2: rgb(238, 237, 235);
+    --color-white: rgb(238, 237, 235);
 
-body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
+    /* https://colorhunt.co/palette/f7f7f7eeeeee393e46929aab */
+    --color-black: rgb(57, 62, 70);
+    --color-accent-1: rgb(238, 238, 238);
+    --color-accent-2: rgb(146, 154, 171);
+    --color-white: rgb(247, 247, 247);
+
+    --spacing-1: 4px;
+    --spacing-1_5: 6px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-10: 40px;
+
+    --z-index-10: 10;
+
+    --breakpoint: 640px;
 }
 
 * {
     box-sizing: border-box;
 }
 
-h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+html {
+    background-color: var(--color-white);
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-black);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        background-color,
+        color 0.2s ease-in;
+
+    &.dark {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
 }
 
-.nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
+body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
     margin: 0;
+    padding: 0 var(--spacing-6);
 }
 
-.hamburger {
-    padding-right: 20px;
-    cursor: pointer;
+main {
+    width: 100%;
+    max-width: var(--breakpoint);
 }
 
-.hamburger .line {
-    display: block;
-    width: 40px;
-    height: 5px;
-    margin-bottom: 10px;
-    background-color: #ff9776;
+h1 {
+    margin: 0 0 var(--spacing-4);
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
 }
 
-.nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
+h2 {
+    margin: 0 0 var(--spacing-4);
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
+
+h3 {
+    margin: 0;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+}
+
+a {
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+    color: inherit;
 
-.nav-links a:hover,
-.nav-links a:focus {
-    background-color: #ff9776;
-}
-
-.expanded {
-    display: unset;
-}
-
-@media screen and (min-width: 636px) {
-    .nav-links {
-        margin-left: 5em;
-        display: block;
-        position: static;
-        width: auto;
-        background: none;
-    }
-
-    .nav-links a {
-        display: inline-block;
-        padding: 15px 20px;
-    }
-
-    .hamburger {
-        display: none;
+    &:hover {
+        text-decoration: line-through;
     }
 }
 
-html.dark {
-    background-color: #0d0950;
-    color: #fff;
+button,
+.button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    border: 1px solid var(--color-black);
+    border-color: var(--color-black);
+    padding: var(--spacing-2);
+    margin: 0;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    transition: border-color 0.2s ease-in;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .dark & {
+        border-color: var(--color-white);
+    }
 }
 
-.dark .nav-links a {
-    color: #fff;
+p {
+    font-size: 18px;
+    margin: 0 0 var(--spacing-4);
+
+    &:has(em) {
+        padding-bottom: var(--spacing-4);
+        position: relative;
+        isolation: isolate;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            height: 4px;
+            width: 120px;
+            background: linear-gradient(
+                    20deg,
+                    var(--color-accent-2),
+                    transparent
+                ),
+                url(/noise.svg);
+        }
+    }
+
+    + h2 {
+        margin-top: var(--spacing-6);
+    }
 }
+
+em {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.grain {
+    position: relative;
+    background-color: var(--color-accent-1);
+    transition:
+        background-color,
+        filter 0.2s ease-in;
+    overflow: hidden;
+    isolation: isolate;
+
+    &:hover {
+        filter: brightness(110%);
+    }
+}
+
+.grain::before {
+    content: "";
+    display: block;
+    background: linear-gradient(0deg, var(--color-accent-2), transparent),
+        url(/noise.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dark {
+    .grain::before {
+        background: linear-gradient(180deg, var(--color-accent-2), transparent),
+            url(/noise.svg);
+    }
+}
+
+/* .grain::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+} */

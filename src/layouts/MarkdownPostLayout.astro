@@ -4,14 +4,16 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-    <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
     <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+
+    <p class="author-and-date">
+        Written by {frontmatter.author}, {frontmatter.pubDate.slice(0, 10)}
+    </p>
+    <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
 
     <slot />
 
-    <ul class="tags">
+    <!-- <ul class="tags">
         {
             frontmatter.tags.map((tag) => (
                 <li class="tag">
@@ -19,27 +21,12 @@ const { frontmatter } = Astro.props;
                 </li>
             ))
         }
-    </ul>
+    </ul> -->
 </BaseLayout>
 
 <style>
-    a {
-        color: #00539f;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-    }
-
-    .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: 0.5em;
-        padding: 0.5em 1em;
-        font-size: 1.15em;
-        background-color: #f8fcfd;
+    .author-and-date {
+        font-size: 16px;
+        font-style: italic;
     }
 </style>

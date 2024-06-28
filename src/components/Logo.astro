@@ -1,0 +1,44 @@
+---
+
+---
+
+<a href="/">
+    <div class="logo">
+        <div class="text">Oliwer</div>
+        <div class="circle grain"></div>
+        <div class="text">Iwanicki</div>
+    </div>
+</a>
+
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+
+    .logo {
+        position: relative;
+    }
+
+    .text {
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 1;
+        position: relative;
+    }
+
+    :global(.dark) {
+        .logo .text {
+            text-shadow: 1px 1px var(--color-black);
+        }
+    }
+
+    .circle {
+        position: absolute;
+        border-radius: 100%;
+        width: 32px;
+        height: 32px;
+        bottom: -7px;
+    }
+</style>

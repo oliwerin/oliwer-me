@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+
+const pageTitle = "Contact";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <p>
+        Feel free to get in touch with me if you have any inquiries or
+        opportunities.
+    </p>
+
+    <ul>
+        <li>
+            <a class="email" href="">Email</a>&nbsp;&#47;&nbsp;
+        </li>
+        <li>
+            <a
+                href="https://www.linkedin.com/in/oliwer-iwanicki-a9419994"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>&nbsp;&#47;&nbsp;
+        </li>
+        <li>
+            <a
+                href="https://github.com/oliwerin"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+        </li>
+    </ul>
+</BaseLayout>
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        margin: 0 0 var(--spacing-4);
+
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    li {
+        font-size: 20px;
+    }
+</style>
+
+<script>
+    const encodedEmail = "b2xpd2VyLml3YW5pY2tpQGdtYWlsLmNvbQ==";
+    const links = Array.from(document.getElementsByClassName("email"));
+
+    links.forEach((link) => {
+        link.setAttribute("href", `mailto:${atob(encodedEmail)}`);
+    });
+</script>

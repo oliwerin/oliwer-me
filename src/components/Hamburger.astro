@@ -1,9 +1,142 @@
 ---
-
+import Navigation from "./Navigation.astro";
+import ThemeButton from "./ThemeButton.astro";
+import RSSLink from "./RSSLink.astro";
 ---
 
-<div class="hamburger">
+<dialog id="hamburger-menu">
+    <div class="controls">
+        <RSSLink />
+        <ThemeButton />
+        <button class="hamburger" aria-label="Close menu">
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </div>
+
+    <Navigation />
+</dialog>
+
+<button class="hamburger" aria-label="Open menu">
     <span class="line"></span>
     <span class="line"></span>
     <span class="line"></span>
-</div>
+</button>
+
+<style>
+    .hamburger {
+        height: 26px;
+        border: none;
+        padding: 0;
+
+        &:hover {
+            background: none;
+        }
+
+        @media screen and (min-width: 640px) {
+            & {
+                display: none;
+            }
+        }
+    }
+
+    .line {
+        display: block;
+        width: 32px;
+        height: 3px;
+        margin-bottom: var(--spacing-2);
+        background-color: var(--color-black);
+        border-radius: 6px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    dialog {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        background: var(--color-white);
+        padding: var(--spacing-6);
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        border: 0;
+        margin: 0;
+
+        & .hamburger {
+            position: relative;
+            margin-left: auto;
+
+            .line:first-child {
+                transform: rotate(45deg);
+                position: relative;
+                top: 1px;
+                margin: 0;
+            }
+
+            .line:last-child {
+                transform: rotate(-45deg);
+                position: relative;
+                top: -2px;
+                margin: 0;
+            }
+        }
+
+        &[open] {
+            display: flex;
+
+            @media screen and (min-width: 640px) {
+                & {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    :global(.dark) {
+        dialog {
+            background-color: var(--color-black);
+
+            a {
+                color: var(--color-white);
+            }
+        }
+
+        .line {
+            background-color: var(--color-white);
+        }
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-2);
+        width: 100%;
+    }
+</style>
+
+<script>
+    const dialog = document.getElementById("hamburger-menu");
+
+    document.querySelector("header").addEventListener("click", (event) => {
+        if (
+            !event.target.classList.contains("hamburger") &&
+            !event.target.classList.contains("line")
+        ) {
+            return;
+        }
+
+        if (dialog.hasAttribute("open")) {
+            dialog.close();
+        } else {
+            dialog.showModal();
+        }
+    });
+</script>
