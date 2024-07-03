@@ -30,6 +30,14 @@ import ThemeButton from "./ThemeButton.astro";
             background: none;
         }
 
+        .hamburger-menu &:focus {
+            outline: none;
+        }
+
+        .hamburger-menu &:focus-within {
+            outline: unset;
+        }
+
         @media screen and (min-width: 640px) {
             & {
                 display: none;
@@ -135,8 +143,6 @@ import ThemeButton from "./ThemeButton.astro";
             dialog.close();
         } else {
             dialog.showModal();
-            dialog.focus();
-            dialog.blur();
         }
     });
 </script>
