@@ -4,7 +4,7 @@ import ThemeButton from "./ThemeButton.astro";
 ---
 
 <dialog id="hamburger-menu">
-    <button class="hamburger" aria-label="Close menu">
+    <button class="hamburger" aria-label="Close menu" autofocus>
         <span class="line"></span>
         <span class="line"></span>
     </button>
@@ -24,18 +24,12 @@ import ThemeButton from "./ThemeButton.astro";
     .hamburger {
         height: 26px;
         border: none;
+        border-radius: 0;
         padding: 0;
+        overflow: hidden;
 
         &:hover {
             background: none;
-        }
-
-        .hamburger-menu &:focus {
-            outline: none;
-        }
-
-        .hamburger-menu &:focus-within {
-            outline: unset;
         }
 
         @media screen and (min-width: 640px) {
