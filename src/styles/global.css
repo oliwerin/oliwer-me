@@ -48,6 +48,10 @@ html {
         background-color: var(--color-black);
         color: var(--color-white);
     }
+
+    &:has(dialog[open]) {
+        overflow: hidden;
+    }
 }
 
 body {
