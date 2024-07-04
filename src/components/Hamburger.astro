@@ -37,6 +37,14 @@ import ThemeButton from "./ThemeButton.astro";
                 display: none;
             }
         }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 5px solid red;
+        }
     }
 
     .line {

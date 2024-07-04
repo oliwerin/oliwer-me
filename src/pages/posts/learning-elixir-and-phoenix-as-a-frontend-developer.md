@@ -52,7 +52,7 @@ While my experience with Elixir has been very positive, some elements could be i
 
 The syntax patterns Elixir introduces can be a double-edged sword. They can reinforce writing solid code, but when misused, they can result in difficult-to-follow code, especially in complex business areas. It’s uncertain if the benefits always outweigh the potential issues.
 
-The lack of a proper type system can be challenging ([although a solution is being worked on](https://www.youtube.com/watch?v=giYbq4HmfGA)). Tracking the shape of objects passed through numerous functions can be tedious. While annotations are available, they don’t provide the same safety and readability as a proper type system.
+The lack of a proper type system can be challenging (although [a solution](https://www.youtube.com/watch?v=giYbq4HmfGA) is being worked on). Tracking the shape of objects passed through numerous functions can be tedious. While annotations are available, they don’t provide the same safety and readability as a proper type system.
 
 As the ecosystem is still new, some parts, such as language servers used for code navigation and autocomplete, can be flaky. I’ve had several instances where it broke unexpectedly (either in VS Code or Zed), forcing me to switch between providers like Lexical, ElixirLS, and Next LS. However, I believe it’s only a matter of time before these tools become fully reliable, and I’m grateful to those maintaining them.
 
