@@ -7,7 +7,7 @@ author: "Oliwer Iwanicki"
 tags: ["programming", "fullstack", "elixir"]
 ---
 
-When I joined Contractbook almost 3.5 years ago, I made a promise to myself to use the job change as an opportunity to solidify my backend knowledge. My motivation was to become a more well-rounded developer, and leave my technical comfort zone.
+When I joined Contractbook in 2021, I made a promise to myself to use the job change as an opportunity to solidify my backend knowledge. My motivation was to become a more well-rounded developer, and leave my technical comfort zone.
 
 My MS in Computer Science gave me a good foundation to explore any technical direction, and I had been working on some backend projects on my own. However, it was never consistent, as I had been focused on the frontend for most of my career.
 
@@ -45,24 +45,23 @@ The ecosystem is easy to work with and doesn’t get in the way. Unlike other la
 
 Additionally, Elixir’s robustness and scalability are significant benefits, though not always evident from an average contributor’s perspective.
 
-## The Not So Good
+## Less Favorable Aspects
 
+While my experience with Elixir has been very positive, there were a few things I liked less.
 
-While my experience with Elixir has been very positive, some elements could be improved.
+The syntax patterns Elixir introduces can be a double-edged sword. They can reinforce writing solid code, but when misused, they can result in difficult-to-follow code, especially in complex business areas. Encountering such code and trying to untangle it can be quite a challenge.
 
-The syntax patterns Elixir introduces can be a double-edged sword. They can reinforce writing solid code, but when misused, they can result in difficult-to-follow code, especially in complex business areas. It’s uncertain if the benefits always outweigh the potential issues.
+The previous point is compounded by the lack of a type system, which can present an additional obstacle. (although [a solution](https://www.youtube.com/watch?v=giYbq4HmfGA) is being worked on). Tracking the shape of objects passed through numerous functions can be tedious. While annotations are available, they don’t provide the same safety and readability as a proper type system.
 
-The lack of a proper type system can be challenging (although [a solution](https://www.youtube.com/watch?v=giYbq4HmfGA) is being worked on). Tracking the shape of objects passed through numerous functions can be tedious. While annotations are available, they don’t provide the same safety and readability as a proper type system.
+As the ecosystem is still new, some parts, such as language servers used for code navigation and autocomplete, can be flaky. I’ve had several instances where it broke unexpectedly, either in VS Code or Zed, forcing me to switch between providers like Lexical, ElixirLS, and Next LS. However, I believe it’s only a matter of time before these tools become fully reliable (and I appreciate the efforts of those maintaining them!).
 
-As the ecosystem is still new, some parts, such as language servers used for code navigation and autocomplete, can be flaky. I’ve had several instances where it broke unexpectedly (either in VS Code or Zed), forcing me to switch between providers like Lexical, ElixirLS, and Next LS. However, I believe it’s only a matter of time before these tools become fully reliable, and I’m grateful to those maintaining them.
-
-Elixir might not be the best choice if you seek top performance, although this is more based on what I’ve read than on my observations in daily work.
+Finally, it's worth mentioning that Elixir might not be the best choice if you seek top performance, although this is more based on what I’ve read than on my observations in daily work.
 
 ## Conclusion
 
 
-Elixir is a fantastic language with a thriving community, and I’m grateful to everyone who maintains it and its ecosystem. Despite its relative obscurity, it has the potential to become a leading technology if its current trajectory is maintained.
+Elixir is a fantastic language with a thriving community, and I’m grateful to everyone who maintains it and its ecosystem. Despite its relative obscurity, it has the potential to become widely adopted if its current trajectory is maintained.
 
-That being said, I might not abandon JavaScript for Elixir just yet. Despite its shortcomings and chaotic standards, JavaScript is still more fun for me. Perhaps it’s because I know it better, and I still consider myself a newcomer to Elixir. My preference may also be influenced by JavaScript’s omnipresence in both frontend and backend development, whereas Elixir has a more specialized scope, which might not be as exciting for me. Writing APIs, even with cool technology, can become monotonous.
+That being said, I might not abandon JavaScript for Elixir just yet. Despite its shortcomings and chaotic standards, JavaScript is still more comfortable for me. Perhaps it’s because I know it better, and I feel less experienced with Elixir. My preference may also be influenced by JavaScript’s omnipresence in both frontend and backend development, whereas Elixir has a more specialized scope, which might not always be as exciting for me. Writing APIs, even with cool technology, can become monotonous.
 
-Regardless of personal preferences, I highly recommend other frontend-focused developers (or backend developers) try a similar experiment. Learning Elixir has significantly contributed to my self-development, and that’s invaluable.
+Regardless of personal preferences, I highly recommend other frontend-focused developers try a similar experiment. Learning Elixir has significantly contributed to my self-development, and that’s invaluable.
