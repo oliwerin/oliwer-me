@@ -44,17 +44,31 @@
         border-radius: 2px;
         height: 20px;
         width: 20px;
+        transition: box-shadow 0.2s ease-in;
+
+        &:hover {
+            box-shadow: 0px 0px 4px 0px var(--color-accent-2);
+
+            &::after {
+                display: none;
+            }
+        }
 
         svg {
             border-radius: 2px;
             height: 20px;
             width: 20px;
-            /* padding: 3px; */
             stroke: var(--color-black);
         }
     }
 
-    :global(.dark) .rss-link svg {
-        stroke: var(--color-white);
+    :global(.dark) .rss-link {
+        &:hover {
+            box-shadow: 0px 0px 4px 0px var(--color-accent-2);
+        }
+
+        svg {
+            stroke: var(--color-white);
+        }
     }
 </style>

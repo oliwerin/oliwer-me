@@ -37,14 +37,6 @@ import ThemeButton from "./ThemeButton.astro";
                 display: none;
             }
         }
-
-        &:focus {
-            outline: none;
-        }
-
-        &:focus-visible {
-            outline: 5px solid red;
-        }
     }
 
     .line {
@@ -132,6 +124,7 @@ import ThemeButton from "./ThemeButton.astro";
 
 <script>
     const dialog = document.getElementById("hamburger-menu");
+    const closeButton = dialog.firstElementChild;
 
     document.querySelector("header").addEventListener("click", (event) => {
         if (
@@ -145,6 +138,11 @@ import ThemeButton from "./ThemeButton.astro";
             dialog.close();
         } else {
             dialog.showModal();
+            closeButton.style.outline = "1px solid transparent";
         }
+    });
+
+    closeButton.addEventListener("blur", () => {
+        closeButton.removeAttribute("style");
     });
 </script>
