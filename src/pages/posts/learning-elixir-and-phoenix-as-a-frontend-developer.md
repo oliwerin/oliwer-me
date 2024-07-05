@@ -11,7 +11,7 @@ When I joined Contractbook in 2021, I made a promise to myself to use the job ch
 
 My MS in Computer Science gave me a good foundation to explore any technical direction, and I had been working on some backend projects on my own. However, it was never consistent, as I had been focused on the frontend for most of my career.
 
-[Elixir](https://elixir-lang.org/) is a relatively new functional language built on top of Erlang, and [Phoenix](https://www.phoenixframework.org/https://www.phoenixframework.org/) is its most popular web application framework. I probably wouldn’t have learned them if I hadn’t found a perfect job opening. My current employer was open to hiring a frontend developer with the prospect of catching up with Elixir. Since the language is still somewhat niche, companies adopting it often take this approach.
+[Elixir](https://elixir-lang.org/) is a relatively new functional language built on top of Erlang, and [Phoenix](https://www.phoenixframework.org) is its most popular web application framework. I probably wouldn’t have learned them if I hadn’t found a perfect job opening. My current employer was open to hiring a frontend developer with the prospect of catching up with Elixir. Since the language is still somewhat niche, companies adopting it often take this approach.
 
 A quick research showed that most programmers who use this language really like it. Considering my limited but positive experience with functional programming and my eagerness to dive further into it, I decided to apply and happily landed the job.
 
