@@ -100,9 +100,15 @@
         return "light";
     })();
 
-    if (theme === "light") {
+    if (
+        theme === "light" &&
+        document.documentElement.classList.contains("dark")
+    ) {
         switchToLight();
-    } else {
+    } else if (
+        theme === "dark" &&
+        !document.documentElement.classList.contains("dark")
+    ) {
         switchToDark();
     }
 
