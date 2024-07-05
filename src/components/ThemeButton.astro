@@ -13,6 +13,7 @@
         border: none;
         position: relative;
         background-color: var(--color-black);
+        transition: var(--transition-bg-color);
     }
 
     .handle {
@@ -23,7 +24,6 @@
         height: 10px;
         border-radius: 4px;
         background-color: var(--color-white);
-        /* transition: top 0.2s ease-in; */
     }
 
     :global(.dark) {
@@ -39,6 +39,54 @@
 </style>
 
 <script>
+    const switchToDark = () => {
+        document.documentElement.classList.add("dark");
+
+        document
+            .querySelector("meta[name='theme-color']")
+            .setAttribute("content", "rgb(57, 62, 70)");
+
+        document
+            .querySelector("link[href='/apple-touch-icon.png']")
+            .setAttribute("href", "/apple-touch-icon-dark.png");
+
+        document
+            .querySelector("link[href='/favicon-32x32.png']")
+            .setAttribute("href", "/favicon-32x32-dark.png");
+
+        document
+            .querySelector("link[href='/favicon-16x16.png']")
+            .setAttribute("href", "/favicon-16x16-dark.png");
+
+        document
+            .querySelector("link[href='/site.webmanifest']")
+            .setAttribute("href", "/site.webmanifest-dark");
+    };
+
+    const switchToLight = () => {
+        document.documentElement.classList.remove("dark");
+
+        document
+            .querySelector("meta[name='theme-color']")
+            .setAttribute("content", "rgb(247, 247, 247)");
+
+        document
+            .querySelector("link[href='/apple-touch-icon-dark.png']")
+            .setAttribute("href", "/apple-touch-icon.png");
+
+        document
+            .querySelector("link[href='/favicon-32x32-dark.png']")
+            .setAttribute("href", "/favicon-32x32.png");
+
+        document
+            .querySelector("link[href='/favicon-16x16-dark.png']")
+            .setAttribute("href", "/favicon-16x16.png");
+
+        document
+            .querySelector("link[href='/site.webmanifest-dark']")
+            .setAttribute("href", "/site.webmanifest");
+    };
+
     const theme = (() => {
         if (
             typeof localStorage !== "undefined" &&
@@ -53,15 +101,9 @@
     })();
 
     if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-        document
-            .querySelector("meta[name='theme-color']")
-            .setAttribute("content", "rgb(247, 247, 247)");
+        switchToLight();
     } else {
-        document.documentElement.classList.add("dark");
-        document
-            .querySelector("meta[name='theme-color']")
-            .setAttribute("content", "rgb(57, 62, 70)");
+        switchToDark();
     }
 
     window.localStorage.setItem("theme", theme);
@@ -78,15 +120,9 @@
         }
 
         if (element.classList.contains("dark")) {
-            element.classList.remove("dark");
-            document
-                .querySelector("meta[name='theme-color']")
-                .setAttribute("content", "rgb(247, 247, 247)");
+            switchToLight();
         } else {
-            element.classList.add("dark");
-            document
-                .querySelector("meta[name='theme-color']")
-                .setAttribute("content", "rgb(57, 62, 70)");
+            switchToDark();
         }
 
         const isDark = element.classList.contains("dark");
@@ -97,8 +133,11 @@
 
     document.addEventListener("DOMContentLoaded", (event) => {
         setTimeout(() => {
-            document.querySelector(".handle").style.transition =
-                "top 0.2s ease-in";
+            const handles = document.querySelectorAll(".handle");
+
+            [...handles].forEach((handle) => {
+                handle.style.transition = "top 0.2s ease-in";
+            });
         }, 200);
     });
 </script>

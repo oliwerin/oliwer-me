@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Learning Elixir as a frontend developer"
-pubDate: 2024-07-01
+pubDate: 2024-07-05
 description: "Reflections on going fullstack by adding Elixir and Phoenix to my skill set."
 author: "Oliwer Iwanicki"
 tags: ["programming", "fullstack", "elixir"]
@@ -45,7 +45,7 @@ The ecosystem is easy to work with and doesn’t get in the way. Unlike other la
 
 Additionally, Elixir’s robustness and scalability are significant benefits, though not always evident from an average contributor’s perspective.
 
-## Less Favorable Aspects
+## The Not So Good
 
 While my experience with Elixir has been very positive, there were a few things I liked less.
 
@@ -55,7 +55,7 @@ The previous point is compounded by the lack of a type system, which can present
 
 As the ecosystem is still new, some parts, such as language servers used for code navigation and autocomplete, can be flaky. I’ve had several instances where it broke unexpectedly, either in VS Code or Zed, forcing me to switch between providers like Lexical, ElixirLS, and Next LS. However, I believe it’s only a matter of time before these tools become fully reliable (and I appreciate the efforts of those maintaining them!).
 
-Finally, it's worth mentioning that Elixir might not be the best choice if you seek top performance, although this is more based on what I’ve read than on my observations in daily work.
+Finally, it's worth mentioning that Elixir might not be the best choice if you seek top performance per response, although this is more based on what I’ve read than on my observations in daily work. In most cases, you are unlikely to need better than this anyway.
 
 ## Conclusion
 

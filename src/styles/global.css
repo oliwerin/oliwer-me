@@ -20,9 +20,16 @@
     --spacing-6: 24px;
     --spacing-10: 40px;
 
-    --z-index-10: 10;
-
     --breakpoint: 640px;
+
+    --transition-color: color 0.2s ease-in;
+    --transition-bg-color: background-color 0.2s ease-in;
+    --transition-bg-filter: background, filter 0.2s ease-in;
+    --transition-box-shadow: box-shadow 0.2s ease-in;
+    --transition-color-text-shadow: color, text-shadow 0.2s ease-in;
+    --transition-color-border-color-box-shadow: color, border-color,
+        box-shadow 0.2s ease-in;
+    --transition-stroke: stroke 0.2s ease-in;
 }
 
 * {
@@ -39,10 +46,7 @@ html {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-
-    transition:
-        background-color,
-        color 0.2s ease-in;
+    transition: var(--transition-bg-color);
 
     &.dark {
         background-color: var(--color-black);
@@ -74,6 +78,7 @@ h1 {
     font-weight: 700;
     font-style: normal;
     font-size: 32px;
+    transition: var(--transition-color);
 }
 
 h2 {
@@ -82,6 +87,7 @@ h2 {
     font-weight: 700;
     font-style: normal;
     font-size: 24px;
+    transition: var(--transition-color);
 }
 
 h3 {
@@ -90,12 +96,14 @@ h3 {
     font-weight: 700;
     font-style: normal;
     font-size: 18px;
+    transition: var(--transition-color);
 }
 
 a {
     display: inline-block;
-    color: inherit;
+    color: var(--color-black);
     position: relative;
+    transition: var(--transition-color);
 
     &:hover {
         @media screen and (min-width: 640px) {
@@ -111,10 +119,10 @@ a {
             }
         }
     }
-}
 
-.dark {
-    a {
+    .dark & {
+        color: var(--color-white);
+
         &:hover {
             @media screen and (min-width: 640px) {
                 &::after {
@@ -133,6 +141,7 @@ button,
     background: transparent;
     border-radius: 6px;
     border: 1px solid var(--color-black);
+    color: var(--color-black);
     border-color: var(--color-black);
     padding: var(--spacing-2);
     margin: 0;
@@ -140,9 +149,7 @@ button,
     font-weight: 700;
     font-style: normal;
     font-size: 16px;
-    transition:
-        border-color,
-        box-shadow 0.2s ease-in;
+    transition: var(--transition-color-border-color-box-shadow);
     text-decoration: none;
 
     &:hover {
@@ -159,6 +166,7 @@ button,
     }
 
     .dark & {
+        color: var(--color-white);
         border-color: var(--color-white);
 
         &:hover {
@@ -172,6 +180,8 @@ button,
 p {
     font-size: 18px;
     margin: 0 0 var(--spacing-4);
+    line-height: 1.3;
+    transition: var(--transition-color);
 
     &:has(em) {
         padding-bottom: var(--spacing-4);
@@ -214,9 +224,7 @@ em {
 }
 
 .gradient {
-    transition:
-        background-color,
-        filter 0.2s ease-in;
+    transition: var(--transition-bg-filter);
 
     background: linear-gradient(
         45deg,
@@ -229,12 +237,12 @@ em {
             filter: brightness(110%);
         }
     }
-}
 
-.dark .gradient {
-    background: linear-gradient(
-        135deg,
-        var(--color-accent-2),
-        var(--color-black)
-    );
+    .dark & {
+        background: linear-gradient(
+            135deg,
+            var(--color-accent-2),
+            var(--color-black)
+        );
+    }
 }

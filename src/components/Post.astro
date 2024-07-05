@@ -22,8 +22,23 @@ const {
         padding: var(--spacing-5);
     }
 
-    :global(.dark) article {
-        text-shadow: 1px 1px 2px var(--color-black);
+    h3,
+    a,
+    p,
+    span {
+        transition: var(--transition-color-text-shadow);
+        color: var(--color-black);
+        text-shadow: 1px 1px 2px transparent;
+    }
+
+    :global(.dark) {
+        h3,
+        a,
+        p,
+        span {
+            color: var(--color-white);
+            text-shadow: 1px 1px 2px var(--color-black);
+        }
     }
 
     header {

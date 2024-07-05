@@ -44,7 +44,7 @@
         border-radius: 2px;
         height: 20px;
         width: 20px;
-        transition: box-shadow 0.2s ease-in;
+        transition: var(--transition-box-shadow);
 
         &:hover {
             @media screen and (min-width: 640px) {
@@ -61,18 +61,21 @@
             height: 20px;
             width: 20px;
             stroke: var(--color-black);
+            transition: var(--transition-stroke);
         }
     }
 
-    :global(.dark) .rss-link {
-        &:hover {
-            @media screen and (min-width: 640px) {
-                box-shadow: 0px 0px 4px 0px var(--color-accent-2);
+    :global(.dark) {
+        .rss-link {
+            &:hover {
+                @media screen and (min-width: 640px) {
+                    box-shadow: 0px 0px 4px 0px var(--color-accent-2);
+                }
             }
-        }
 
-        svg {
-            stroke: var(--color-white);
+            svg {
+                stroke: var(--color-white);
+            }
         }
     }
 </style>

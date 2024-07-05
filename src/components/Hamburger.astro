@@ -60,14 +60,14 @@ import ThemeButton from "./ThemeButton.astro";
         max-height: 100%;
         top: 0;
         left: 0;
-        display: none;
-        background: var(--color-white);
+        background-color: var(--color-white);
         padding: var(--spacing-6);
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
         border: 0;
         margin: 0;
+        transition: var(--transition-bg-color);
 
         & .hamburger {
             position: relative;
@@ -146,5 +146,11 @@ import ThemeButton from "./ThemeButton.astro";
 
     closeButton.addEventListener("blur", () => {
         closeButton.removeAttribute("style");
+    });
+
+    window.addEventListener("resize", () => {
+        if (dialog.hasAttribute("open") && window.innerWidth >= 640) {
+            dialog.close();
+        }
     });
 </script>
