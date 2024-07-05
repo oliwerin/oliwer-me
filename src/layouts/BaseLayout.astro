@@ -6,7 +6,7 @@ import "../styles/global.css";
 const { pageTitle, heading } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="css-transitions-only-after-page-load">
     <head>
         <meta charset="utf-8" />
 
@@ -58,3 +58,13 @@ const { pageTitle, heading } = Astro.props;
         </script>
     </body>
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        setTimeout(() => {
+            document.documentElement.classList.remove(
+                "css-transitions-only-after-page-load",
+            );
+        }, 200);
+    });
+</script>

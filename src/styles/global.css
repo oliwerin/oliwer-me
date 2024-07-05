@@ -30,6 +30,7 @@
     --transition-color-border-color-box-shadow: color, border-color,
         box-shadow 0.2s ease-in;
     --transition-stroke: stroke 0.2s ease-in;
+    --transition-top: top 0.2s ease-in;
 }
 
 * {
@@ -58,6 +59,11 @@ html {
     }
 }
 
+.css-transitions-only-after-page-load {
+    * {
+        transition: none !important;
+    }
+}
 body {
     display: flex;
     flex-direction: column;

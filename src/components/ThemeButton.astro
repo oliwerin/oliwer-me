@@ -13,7 +13,7 @@
         border: none;
         position: relative;
         background-color: var(--color-black);
-        transition: var(--transition-bg-color);
+        transition: var(--transition-top);
     }
 
     .handle {
@@ -24,6 +24,7 @@
         height: 10px;
         border-radius: 4px;
         background-color: var(--color-white);
+        transition: top 0.2s ease-in;
     }
 
     :global(.dark) {
@@ -136,14 +137,4 @@
     };
 
     nav.addEventListener("click", handleToggleClick);
-
-    document.addEventListener("DOMContentLoaded", (event) => {
-        setTimeout(() => {
-            const handles = document.querySelectorAll(".handle");
-
-            [...handles].forEach((handle) => {
-                handle.style.transition = "top 0.2s ease-in";
-            });
-        }, 200);
-    });
 </script>
