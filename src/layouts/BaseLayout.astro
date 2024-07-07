@@ -4,6 +4,8 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const { pageTitle, heading } = Astro.props;
+const meta = Astro.props.meta || {};
+const origin = Astro.site.origin;
 ---
 
 <html lang="en" class="css-transitions-only-after-page-load">
@@ -44,6 +46,57 @@ const { pageTitle, heading } = Astro.props;
         <meta name="generator" content={Astro.generator} />
 
         <meta name="theme-color" content="rgb(247, 247, 247)" />
+
+        <meta property="og:title" content={meta.title || "Oliwer Iwanicki"} />
+
+        <meta
+            property="og:description"
+            content={meta.description || "Oliwer Iwanicki's personal website"}
+        />
+
+        {
+            meta.image && (
+                <>
+                    <meta
+                        property="og:image"
+                        content={`${origin}${meta.image.url}`}
+                    />
+
+                    <meta property="og:image:alt" content={meta.image.alt} />
+                </>
+            )
+        }
+
+        <meta name="twitter:card" content="summary" />
+
+        <meta
+            property="twitter:title"
+            content={meta.title || "Oliwer Iwanicki"}
+        />
+
+        <meta
+            property="twitter:description"
+            content={meta.description || "Oliwer Iwanicki's personal website"}
+        />
+
+        {
+            meta.image && (
+                <>
+                    <meta
+                        property="twitter:image"
+                        content={`${origin}${meta.image.url}`}
+                    />
+
+                    <meta
+                        property="twitter:image:alt"
+                        content={meta.image.alt}
+                    />
+                </>
+            )
+        }
+
+        <meta name="twitter:site" content="@oliwerin" />
+
         <title>{pageTitle}</title>
     </head>
     <body>

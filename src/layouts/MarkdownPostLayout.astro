@@ -3,7 +3,15 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout pageTitle={frontmatter.title} heading={frontmatter.title}>
+<BaseLayout
+    pageTitle={frontmatter.title}
+    heading={frontmatter.title}
+    meta={{
+        title: frontmatter.title,
+        description: frontmatter.description,
+        image: frontmatter.image,
+    }}
+>
     <p><em>{frontmatter.description}</em></p>
 
     <p class="author-and-date">

@@ -5,6 +5,9 @@ pubDate: 2024-07-05
 description: "Reflections on going fullstack by adding Elixir and Phoenix to my skill set."
 author: "Oliwer Iwanicki"
 tags: ["programming", "fullstack", "elixir"]
+image:
+  url: "/elixir-logo.png"
+  alt: "The Elixir programming language logo"
 ---
 
 When I joined Contractbook in 2021, I made a promise to myself to use the job change as an opportunity to solidify my backend knowledge. My motivation was to become a more well-rounded developer, and leave my technical comfort zone.
@@ -28,7 +31,7 @@ After becoming familiar with the language, it all of a sudden became to feel eas
 
 I should emphasize that while I was able to juggle both frontend and backend tasks, there were times when I had to focus more on one of them. This was either due to the nature of the project I was working on or the preferences and capacity of other developers on the team. Therefore, there were times when I had to pause my Elixir learning and return to it later.
 
-While I now feel confident in Elixir, I hesitate to consider myself an expert just yet. I haven't delved into more advanced language concepts like meta programming, and I feel I have room to improve in understanding server infrastructure. However, I am fluent in writing most new features and debugging issues.
+While I now feel confident in Elixir, I hesitate to consider myself an expert just yet. I haven't delved into more advanced language concepts like meta-programming, and I feel I have room to improve in understanding server infrastructure. However, I am fluent in writing most new features and debugging issues. To broaden my understanding and grasp the finer details, I'm currently reading "[Elixir in Action](https://www.manning.com/books/elixir-in-action-third-edition)", which I highly recommend.
 
 ## The Good
 
