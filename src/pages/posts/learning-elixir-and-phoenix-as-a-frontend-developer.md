@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Learning Elixir as a frontend developer"
 pubDate: 2024-07-05
-description: "Reflections on going fullstack by adding Elixir and Phoenix to my skill set."
+description: "Expanding my skill set by diving into Elixir and Phoenix: reflections on my learning journey and new technologies."
 author: "Oliwer Iwanicki"
 tags: ["programming", "fullstack", "elixir"]
 image:
