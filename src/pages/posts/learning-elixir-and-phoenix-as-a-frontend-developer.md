@@ -6,7 +6,7 @@ description: "Reflections on going fullstack by adding Elixir and Phoenix to my 
 author: "Oliwer Iwanicki"
 tags: ["programming", "fullstack", "elixir"]
 image:
-  url: "/elixir-logo.png"
+  url: "/elixir-logo.jpg"
   alt: "The Elixir programming language logo"
 ---
 
