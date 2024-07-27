@@ -22,6 +22,10 @@
 
     --breakpoint: 640px;
 
+    --border-radius-sm: 2px;
+    --border-radius-md: 4px;
+    --border-radius-lg: 6px;
+
     --transition-color: color 0.2s ease-in;
     --transition-bg-color: background-color 0.2s ease-in;
     --transition-bg-filter: background, filter 0.2s ease-in;
@@ -146,7 +150,7 @@ button,
     padding: 0;
     border: none;
     background: transparent;
-    border-radius: 6px;
+    border-radius: var(--border-radius-lg);
     border: 1px solid var(--color-black);
     color: var(--color-black);
     border-color: var(--color-black);
