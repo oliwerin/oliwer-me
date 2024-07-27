@@ -1,0 +1,51 @@
+---
+
+---
+
+<button class="play-snake-button">
+    <svg
+        width="16"
+        height="32"
+        viewBox="0 0 16 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M13.9926 20.3C15.2417 18.8887 16 17.0329 16 15L16 0H0V15C0 17.0329 0.758256 18.8887 2.00737 20.3C2.13748 22.9424 3.97695 25.1353 6.44314 25.796L6 32L8 30.25L10 32L9.55686 25.796C12.023 25.1353 13.8625 22.9424 13.9926 20.3ZM2 16C2 14.8954 2.89543 14 4 14C5.10457 14 6 14.8954 6 16C6 17.1046 5.10457 18 4 18C2.89543 18 2 17.1046 2 16ZM10 16C10 14.8954 10.8954 14 12 14C13.1046 14 14 14.8954 14 16C14 17.1046 13.1046 18 12 18C10.8954 18 10 17.1046 10 16Z"
+        ></path>
+    </svg>
+</button>
+
+<style>
+    button {
+        border: 0;
+        padding: 0;
+        height: 32px;
+        width: 16px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    svg {
+        transition: var(--transition-fill);
+        fill: var(--color-black);
+    }
+
+    :global(.dark) {
+        svg {
+            fill: var(--color-white);
+        }
+    }
+</style>
+
+<script>
+    const snakeModal = document.getElementById("snake-dialog");
+
+    document
+        .querySelector(".play-snake-button")
+        .addEventListener("click", () => {
+            snakeModal.showModal();
+        });
+</script>

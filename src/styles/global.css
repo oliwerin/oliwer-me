@@ -35,6 +35,7 @@
         box-shadow 0.2s ease-in;
     --transition-stroke: stroke 0.2s ease-in;
     --transition-top: top 0.2s ease-in;
+    --transition-fill: fill 0.2s ease-in;
 }
 
 * {
