@@ -48,6 +48,7 @@ html {
     display: flex;
     flex-direction: column;
     transition: var(--transition-bg-color);
+    overflow-y: scroll;
 
     &.dark {
         background-color: var(--color-black);
