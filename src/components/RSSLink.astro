@@ -9,9 +9,9 @@
     href="/rss.xml"
     target="_blank"
     ><svg
-        width="32"
+        width="33"
         height="32"
-        viewBox="0 0 32 32"
+        viewBox="0 0 33 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
@@ -21,30 +21,31 @@
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
-            width="32"
+            width="33"
             height="32"
         >
-            <rect width="32" height="32" rx="6" fill="#7A6F67"></rect>
+            <rect x="0.796509" width="32" height="32"></rect>
         </mask>
         <g mask="url(#mask0_169_13)">
-            <circle
-                cx="12"
-                cy="12"
-                r="6"
-                transform="matrix(1 0 0 -1 -11 43)"
-                stroke-width="12"></circle>
-            <circle cy="32" r="21" stroke-width="4"></circle>
-            <circle cx="1" cy="32" r="30" stroke-width="4"></circle>
+            <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M28.7965 32C28.7965 47.464 16.2605 60 0.796509 60C-14.6675 60 -27.2035 47.464 -27.2035 32C-27.2035 16.536 -14.6675 4 0.796509 4C16.2605 4 28.7965 16.536 28.7965 32ZM32.7965 32C32.7965 49.6731 18.4696 64 0.796509 64C-16.8766 64 -31.2035 49.6731 -31.2035 32C-31.2035 14.3269 -16.8766 0 0.796509 0C18.4696 0 32.7965 14.3269 32.7965 32ZM-0.203491 51C10.2899 51 18.7965 42.4934 18.7965 32C18.7965 21.5066 10.2899 13 -0.203491 13C-10.6969 13 -19.2035 21.5066 -19.2035 32C-19.2035 42.4934 -10.6969 51 -0.203491 51ZM-0.203491 55C12.4991 55 22.7965 44.7025 22.7965 32C22.7965 19.2975 12.4991 9 -0.203491 9C-12.906 9 -23.2035 19.2975 -23.2035 32C-23.2035 44.7025 -12.906 55 -0.203491 55ZM0.796509 19C7.42393 19 12.7965 24.3726 12.7965 31C12.7965 37.6274 7.42393 43 0.796509 43C-5.83091 43 -11.2035 37.6274 -11.2035 31C-11.2035 24.3726 -5.83091 19 0.796509 19Z"
+            ></path>
         </g>
-    </svg></a
->
+    </svg>
+</a>
 
 <style>
     .rss-link {
-        border-radius: var(--border-radius-sm);
-        height: 20px;
-        width: 20px;
-        transition: var(--transition-box-shadow);
+        position: relative;
+        border: 2px solid var(--color-black);
+        border-radius: var(--border-radius-md);
+        height: 32px;
+        width: 32px;
+
+        transition: var(--transition-color-border-color-box-shadow);
+        display: block;
 
         &:hover {
             @media screen and (min-width: 640px) {
@@ -57,16 +58,20 @@
         }
 
         svg {
-            border-radius: var(--border-radius-sm);
-            height: 20px;
-            width: 20px;
-            stroke: var(--color-black);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            height: 32px;
+            width: 32px;
+            fill: var(--color-black);
             transition: var(--transition-stroke);
         }
     }
 
     :global(.dark) {
         .rss-link {
+            border-color: var(--color-white);
+
             &:hover {
                 @media screen and (min-width: 640px) {
                     box-shadow: 0px 0px 4px 0px var(--color-accent-2);
@@ -74,7 +79,7 @@
             }
 
             svg {
-                stroke: var(--color-white);
+                fill: var(--color-white);
             }
         }
     }

@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "oliwer-me",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.6.1",
     "@astrojs/rss": "^4.0.6",
-    "astro": "^4.8.4"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.8.4",
+    "classnames": "^2.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-swipeable": "^7.0.1"
   }
 }

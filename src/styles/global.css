@@ -35,7 +35,6 @@
         box-shadow 0.2s ease-in;
     --transition-stroke: stroke 0.2s ease-in;
     --transition-top: top 0.2s ease-in;
-    --transition-fill: fill 0.2s ease-in;
 }
 
 * {
@@ -51,9 +50,10 @@ html {
     color: var(--color-black);
     min-height: 100%;
     display: flex;
+    width: 100%;
     flex-direction: column;
     transition: var(--transition-bg-color);
-    overflow-y: scroll;
+    overflow-y: scroll !important;
 
     &.dark {
         background-color: var(--color-black);
@@ -70,6 +70,7 @@ html {
         transition: none !important;
     }
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -91,6 +92,11 @@ h1 {
     font-style: normal;
     font-size: 32px;
     transition: var(--transition-color);
+    color: var(--color-black);
+
+    .dark & {
+        color: var(--color-white);
+    }
 }
 
 h2 {
@@ -100,6 +106,11 @@ h2 {
     font-style: normal;
     font-size: 24px;
     transition: var(--transition-color);
+    color: var(--color-black);
+
+    .dark & {
+        color: var(--color-white);
+    }
 }
 
 h3 {
@@ -109,6 +120,11 @@ h3 {
     font-style: normal;
     font-size: 18px;
     transition: var(--transition-color);
+    color: var(--color-black);
+
+    .dark & {
+        color: var(--color-white);
+    }
 }
 
 a {
