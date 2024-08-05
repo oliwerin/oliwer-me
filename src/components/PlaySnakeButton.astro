@@ -1,0 +1,64 @@
+---
+
+---
+
+<button class="play-snake-button" aria-label="Play snake">
+    <svg
+        width="17"
+        height="29"
+        viewBox="0 0 17 29"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M14.712 17.0129C15.9611 15.6016 16.7194 13.7458 16.7194 11.713L16.7193 0.0880134L13.3835 0.0880127L8.71936 0.242714L0.719238 0.242715L0.71936 11.713C0.71936 13.7458 1.47762 15.6016 2.72673 17.0129C2.85684 19.6553 4.69631 21.8482 7.1625 22.509L6.71936 28.713L8.71936 26.9629L10.7194 28.713L10.2762 22.509C12.7424 21.8482 14.5819 19.6553 14.712 17.0129ZM2.71936 12.7129C2.71936 11.6084 3.61479 10.7129 4.71936 10.7129C5.82393 10.7129 6.71936 11.6084 6.71936 12.7129C6.71936 13.8175 5.82393 14.7129 4.71936 14.7129C3.61479 14.7129 2.71936 13.8175 2.71936 12.7129ZM10.7194 12.713C10.7194 11.6084 11.6148 10.713 12.7194 10.713C13.8239 10.713 14.7194 11.6084 14.7194 12.713C14.7194 13.8175 13.8239 14.713 12.7194 14.713C11.6148 14.713 10.7194 13.8175 10.7194 12.713Z"
+        ></path>
+    </svg>
+</button>
+
+<style>
+    button {
+        position: relative;
+        border: 2px solid var(--color-black);
+        border-radius: var(--border-radius-md);
+        height: 32px;
+        width: 32px;
+        transition: var(--transition-color-border-color-box-shadow);
+        padding: 0;
+    }
+
+    svg {
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        height: 28px;
+        width: 28px;
+        fill: var(--color-black);
+        transition: var(--transition-stroke);
+    }
+
+    :global(.dark) {
+        svg {
+            fill: var(--color-white);
+        }
+    }
+</style>
+
+<script>
+    const snakeDialog = document.getElementById("snake-dialog");
+    const closeButton = snakeDialog.querySelector(".close-snake-dialog-button");
+    const openButton = document.querySelector(".play-snake-button");
+
+    openButton.addEventListener("click", () => {
+        const html = document.documentElement;
+        const scrollPosition = html.scrollTop;
+
+        html.style.top = `-${scrollPosition}px`;
+        html.style.position = "fixed";
+
+        snakeDialog.showModal();
+        closeButton.style.outline = "1px solid transparent";
+    });
+</script>

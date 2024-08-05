@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import SnakeDialog from "../components/SnakeDialog.astro";
 import "../styles/global.css";
 
 const { pageTitle, heading } = Astro.props;
@@ -106,6 +107,8 @@ const origin = Astro.site.origin;
             <slot />
         </main>
         <Footer />
+        <SnakeDialog />
+
         <script>
             import "../scripts/menu.js";
         </script>

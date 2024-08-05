@@ -1,17 +1,26 @@
 ---
 import RSSLink from "./RSSLink.astro";
+import PlaySnakeButton from "./PlaySnakeButton.astro";
 ---
 
 <footer>
-    <p>© {new Date().getFullYear()} &middot; Oliwer Iwanicki</p>
-    <RSSLink />
+    <p>
+        © {new Date().getFullYear()} &middot; Oliwer Iwanicki &middot; Built with
+        <a href="https://astro.build/" target="_blank">Astro </a>
+    </p>
+
+    <div class="left-section">
+        <PlaySnakeButton />
+        <RSSLink />
+    </div>
 </footer>
 
 <style>
     footer {
         margin-top: auto;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: center;
         padding: var(--spacing-6) 0;
         width: 100%;
         max-width: var(--breakpoint);
@@ -21,5 +30,10 @@ import RSSLink from "./RSSLink.astro";
     p {
         font-size: 16px;
         margin: 0;
+    }
+
+    .left-section {
+        display: flex;
+        gap: var(--spacing-2);
     }
 </style>
