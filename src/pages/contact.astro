@@ -9,12 +9,13 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
         opportunities.
     </p>
 
-    <ul>
+    <ul class="flex mb-4 font-serif font-bold">
         <li>
-            <a class="email" href="">Email</a>&nbsp;&#47;&nbsp;
+            <a class="no-underline email" href="">Email</a>&nbsp;&#47;&nbsp;
         </li>
         <li>
             <a
+                class="no-underline"
                 href="https://www.linkedin.com/in/oliwer-iwanicki-a9419994"
                 target="_blank"
                 rel="noopener noreferrer">LinkedIn</a
@@ -22,6 +23,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
         </li>
         <li>
             <a
+                class="no-underline"
                 href="https://github.com/oliwerin"
                 target="_blank"
                 rel="noopener noreferrer">GitHub</a
@@ -29,6 +31,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
         </li>
         <li>
             <a
+                class="no-underline"
                 href="https://twitter.com/oliwerin"
                 target="_blank"
                 rel="noopener noreferrer">Twitter (X)</a
@@ -36,28 +39,6 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
         </li>
     </ul>
 </BaseLayout>
-
-<style>
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        margin: 0 0 var(--spacing-4);
-
-        font-family: "Merriweather", serif;
-        font-weight: 700;
-        font-style: normal;
-    }
-
-    li {
-        transition: var(--transition-color);
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
 
 <script>
     const encodedEmail = "b2xpd2VyLml3YW5pY2tpQGdtYWlsLmNvbQ==";

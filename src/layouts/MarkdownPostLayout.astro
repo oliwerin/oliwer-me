@@ -14,7 +14,7 @@ const { frontmatter } = Astro.props;
 >
     <p><em>{frontmatter.description}</em></p>
 
-    <p class="author-and-date">
+    <p class="text-base italic">
         Written by {frontmatter.author}, {frontmatter.pubDate.slice(0, 10)}
     </p>
     <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
@@ -31,10 +31,3 @@ const { frontmatter } = Astro.props;
         }
     </ul> -->
 </BaseLayout>
-
-<style>
-    .author-and-date {
-        font-size: 16px;
-        font-style: italic;
-    }
-</style>

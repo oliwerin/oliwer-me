@@ -6,28 +6,29 @@ const {
 } = post;
 ---
 
-<article class="gradient">
-    <header>
-        <h3><a href={url}>{title}</a></h3>
+<article
+    class="relative rounded-md p-5 text-black dark:text-white transition-colors gradient"
+>
+    <header
+        class="flex flex-col-reverse gap-1.5 sm:flex-row sm:justify-between sm:items-center sm:gap-0 sm:mb-2"
+    >
+        <h3 class="mb-1.5 sm:mb-0">
+            <a class="no-underline" href={url}>{title}</a>
+        </h3>
         <span>{pubDate.toString().slice(0, 10)}</span>
     </header>
-    <main><p>{description}</p></main>
-    <footer><a href={url} tabindex={-1}>Read more</a></footer>
+    <main><p class="mb-3 text-base">{description}</p></main>
+    <footer class="flex justify-end">
+        <a href={url} tabindex={-1}>Read more</a>
+    </footer>
 </article>
 
 <style>
-    article {
-        position: relative;
-        border-radius: var(--border-radius-lg);
-        padding: var(--spacing-5);
-    }
-
     h3,
     a,
     p,
     span {
-        transition: var(--transition-color-text-shadow);
-        color: var(--color-black);
+        /* transition: var(--transition-color-text-shadow); */
         text-shadow: 1px 1px 2px transparent;
     }
 
@@ -36,48 +37,7 @@ const {
         a,
         p,
         span {
-            color: var(--color-white);
             text-shadow: 1px 1px 2px var(--color-black);
-        }
-    }
-
-    header {
-        display: flex;
-        flex-direction: column-reverse;
-        gap: var(--spacing-1_5);
-
-        @media screen and (min-width: 640px) {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0;
-            margin-bottom: var(--spacing-2);
-        }
-
-        a {
-            text-decoration: none;
-        }
-    }
-
-    h3 {
-        margin-bottom: var(--spacing-1_5);
-
-        @media screen and (min-width: 640px) {
-            margin-bottom: 0;
-        }
-    }
-
-    p {
-        font-size: 16px;
-        margin-bottom: var(--spacing-3);
-    }
-
-    footer {
-        display: flex;
-        justify-content: flex-end;
-
-        a {
-            position: relative;
         }
     }
 </style>

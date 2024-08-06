@@ -3,37 +3,16 @@ import RSSLink from "./RSSLink.astro";
 import PlaySnakeButton from "./PlaySnakeButton.astro";
 ---
 
-<footer>
-    <p>
+<footer
+    class="flex items-center justify-between gap-3 w-full max-w-screen-sm mt-auto py-6"
+>
+    <p class="m-0 text-base">
         © {new Date().getFullYear()} &middot; Oliwer Iwanicki &middot; Built with
         <a href="https://astro.build/" target="_blank">Astro </a>
     </p>
 
-    <div class="left-section">
+    <div class="flex gap-2">
         <PlaySnakeButton />
         <RSSLink />
     </div>
 </footer>
-
-<style>
-    footer {
-        margin-top: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--spacing-6) 0;
-        width: 100%;
-        max-width: var(--breakpoint);
-        gap: var(--spacing-3);
-    }
-
-    p {
-        font-size: 16px;
-        margin: 0;
-    }
-
-    .left-section {
-        display: flex;
-        gap: var(--spacing-2);
-    }
-</style>
