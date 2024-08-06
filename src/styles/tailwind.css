@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .gradient {
+        @apply bg-gradient-to-r
+        from-accent-2
+        to-accent-1 dark:to-black
+        hover:brightness-110;
+    }
+}
+
+@layer base {
+    html {
+        @apply flex
+        w-full min-h-full
+        !overflow-y-scroll
+        bg-white dark:bg-black
+        text-black dark:text-white
+        font-sans font-normal
+        transition-colors duration-200 ease-in
+
+        has-[dialog[open]]:overflow-hidden;
+    }
+
+    body {
+        @apply flex flex-col grow items-center
+        px-6;
+    }
+
+    main {
+        @apply w-full max-w-screen-sm;
+    }
+
+    h1 {
+        @apply mb-4
+        text-3xl text-black dark:text-white
+        font-serif font-bold
+        transition-colors duration-200 ease-in;
+    }
+
+    h2 {
+        @apply mb-4
+        text-2xl text-black dark:text-white
+        font-serif font-bold
+        transition-colors duration-200 ease-in;
+    }
+
+    h3 {
+        @apply text-lg text-black dark:text-white
+        font-serif font-bold
+        transition-colors duration-200 ease-in;
+    }
+
+    p {
+        @apply mb-4
+        text-lg text-black dark:text-white
+        font-sans font-normal leading-6
+        transition-colors duration-200 ease-in
+
+        has-[em]:relative
+        has-[em]:pb-4
+
+        has-[em]:after:absolute has-[em]:after:bottom-0
+        has-[em]:after:block
+        has-[em]:after:w-32 has-[em]:after:h-1
+        has-[em]:after:gradient
+        has-[em]:after:hover:brightness-100;
+    }
+
+    em {
+        @apply text-xl
+        font-serif font-bold
+        not-italic;
+    }
+
+    a {
+        @apply relative
+        inline-block
+        text-black dark:text-white
+        underline
+        transition-colors duration-200 ease-in
+
+
+        after:absolute after:top-1/2 after:left-0
+        after:hidden
+        after:w-full after:h-px
+        after:bg-black dark:after:bg-white
+
+        sm:after:hover:block;
+    }
+}
