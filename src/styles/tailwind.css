@@ -9,6 +9,11 @@
         to-accent-1 dark:to-black
         hover:brightness-110;
     }
+
+    .text-shadow-in-dark-mode {
+        @apply text-shadow dark:text-shadow-dark
+        transition-all duration-200 ease-in;
+    }
 }
 
 @layer base {

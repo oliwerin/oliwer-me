@@ -13,31 +13,20 @@ const {
         class="flex flex-col-reverse gap-1.5 sm:flex-row sm:justify-between sm:items-center sm:gap-0 sm:mb-2"
     >
         <h3 class="mb-1.5 sm:mb-0">
-            <a class="no-underline" href={url}>{title}</a>
+            <a class="no-underline text-shadow-in-dark-mode" href={url}
+                >{title}</a
+            >
         </h3>
-        <span>{pubDate.toString().slice(0, 10)}</span>
+        <span class="text-shadow-in-dark-mode"
+            >{pubDate.toString().slice(0, 10)}</span
+        >
     </header>
-    <main><p class="mb-3 text-base">{description}</p></main>
+    <main>
+        <p class="mb-3 text-base text-shadow-in-dark-mode">{description}</p>
+    </main>
     <footer class="flex justify-end">
-        <a href={url} tabindex={-1}>Read more</a>
+        <a class="text-shadow-in-dark-mode" href={url} tabindex={-1}
+            >Read more</a
+        >
     </footer>
 </article>
-
-<style>
-    h3,
-    a,
-    p,
-    span {
-        /* transition: var(--transition-color-text-shadow); */
-        text-shadow: 1px 1px 2px transparent;
-    }
-
-    :global(.dark) article {
-        h3,
-        a,
-        p,
-        span {
-            text-shadow: 1px 1px 2px var(--color-black);
-        }
-    }
-</style>
