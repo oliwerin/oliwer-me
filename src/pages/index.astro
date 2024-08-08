@@ -13,15 +13,11 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     <p>Take a look around my website and blog.</p>
     <h2>Recent posts</h2>
     {allPosts.map((post) => <Post post={post} />)}
-    <div class="button-wrapper">
-        <a href="/blog" class="button">All posts</a>
+    <div class="flex justify-center mt-5">
+        <a
+            href="/blog"
+            class="block h-9 border-2 border-solid border-black dark:border-white px-2 rounded-md font-serif leading-8 no-underline after:!hidden"
+            >All posts</a
+        >
     </div>
 </BaseLayout>
-
-<style>
-    .button-wrapper {
-        margin-top: var(--spacing-5);
-        display: flex;
-        justify-content: center;
-    }
-</style>

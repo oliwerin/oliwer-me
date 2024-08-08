@@ -1,0 +1,33 @@
+---
+const { dialogId, ariaLabel, classes } = Astro.props;
+---
+
+<button
+    class={`open-dialog-button ${classes}`}
+    data-dialog-id={dialogId}
+    aria-label={ariaLabel}
+>
+    <slot />
+</button>
+
+<script>
+    const buttons = document.getElementsByClassName("open-dialog-button");
+
+    [...buttons].forEach((button) => {
+        const dialog = document.getElementById(button.dataset.dialogId);
+
+        button.addEventListener("click", () => {
+            const html = document.documentElement;
+            const scrollPosition = html.scrollTop;
+
+            html.style.top = `-${scrollPosition}px`;
+            html.style.position = "fixed";
+
+            dialog.showModal();
+
+            const closeButton = dialog.querySelector(".close-dialog-button");
+
+            closeButton.style.outline = "1px solid transparent";
+        });
+    });
+</script>

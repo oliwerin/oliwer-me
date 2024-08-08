@@ -1,0 +1,70 @@
+---
+const { dialogId, hideOnDesktop } = Astro.props;
+---
+
+<dialog
+    id={dialogId}
+    data-hide-on-desktop={Boolean(hideOnDesktop)}
+    class="fixed w-full h-full max-w-full max-h-full m-0 bg-[transparent] backdrop-blur-sm sm:p-10"
+>
+    <div
+        class="relative flex flex-col min-h-full max-w-screen-sm sm:h-auto m-auto p-6 bg-white dark:bg-black transition-colors duration-200 ease-in sm:min-h-[auto] sm:p-20 sm:rounded-md"
+    >
+        <button
+            class="close-dialog-button absolute top-6 right-6 w-8 h-8"
+            aria-label="Close dialog"
+            autofocus
+        >
+            <div
+                class="absolute w-8 h-[3px] mt-[-1px] rounded bg-black dark:bg-white rotate-45 transition-colors duration-200 ease-in"
+            >
+            </div>
+
+            <div
+                class="absolute w-8 h-[3px] mt-[-1px] rounded bg-black dark:bg-white rotate-315 transition-colors duration-200 ease-in"
+            >
+            </div>
+        </button>
+        <slot />
+    </div>
+</dialog>
+
+<script>
+    const dialogs = document.getElementsByTagName("dialog");
+
+    [...dialogs].forEach((dialog) => {
+        const close = () => {
+            const html = document.documentElement;
+            const scrollPosition = html.style.top.slice(1, -2); // The value can be for instance "-32px"
+
+            html.style.position = "";
+            html.scrollTop = parseInt(scrollPosition);
+
+            dialog.close();
+        };
+
+        dialog.addEventListener("click", (event) => {
+            if (event.target.id === dialog.id) {
+                close();
+            }
+        });
+
+        const closeButton = dialog.querySelector(".close-dialog-button");
+
+        closeButton.addEventListener("click", () => {
+            close();
+        });
+
+        closeButton.addEventListener("blur", () => {
+            closeButton.removeAttribute("style");
+        });
+
+        if ("hideOnDesktop" in dialog.dataset) {
+            window.addEventListener("resize", () => {
+                if (dialog.hasAttribute("open") && window.innerWidth >= 640) {
+                    close();
+                }
+            });
+        }
+    });
+</script>

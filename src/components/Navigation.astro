@@ -1,59 +1,35 @@
 ---
-
+const navItems = [
+    ["/about", "About"],
+    ["/blog", "Blog"],
+    ["/contact", "Contact"],
+];
 ---
 
-<ul>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/contact/">Contact</a></li>
-    <!-- <a href="/tags/">Tags</a> -->
+<ul
+    class="flex flex-col items-center gap-5 w-full sm:flex-row sm:w-auto"
+    data-nav
+>
+    {
+        navItems.map(([url, label]) => (
+            <li>
+                <a
+                    class="text-4xl tracking-wide uppercase no-underline sm:text-base"
+                    href={url}
+                >
+                    {label}
+                </a>
+            </li>
+        ))
+    }
 </ul>
 
-<style>
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-3);
-        width: 100%;
-        align-items: center;
-
-        @media screen and (min-width: 640px) {
-            flex-direction: row;
-            gap: var(--spacing-5);
-            width: auto;
-        }
-    }
-
-    li {
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        font-size: 40px;
-
-        @media screen and (min-width: 640px) {
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        &.active {
-            font-weight: 700;
-        }
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
-
 <script>
-    document.querySelectorAll("header nav ul > li > a").forEach((nav) => {
+    document.querySelectorAll("ul[data-nav] > li > a").forEach((nav) => {
         if (nav.pathname === window.location.pathname) {
-            nav.closest("li").classList.add("active");
+            nav.closest("li").classList.add("font-bold");
         } else {
-            nav.closest("li").classList.remove("active");
+            nav.closest("li").classList.remove("font-bold");
         }
     });
 </script>

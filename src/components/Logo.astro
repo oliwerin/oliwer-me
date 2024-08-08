@@ -2,55 +2,19 @@
 
 ---
 
-<a href="/">
-    <div class="logo">
-        <div class="text">Oliwer</div>
-        <div class="circle gradient"></div>
-        <div class="text">Iwanicki</div>
+<a href="/" class="relative block no-underline hover:after:hidden group">
+    <div
+        class="relative text-xl font-serif font-bold leading-5 text text-shadow-in-dark-mode"
+    >
+        Oliwer
+    </div>
+    <div
+        class="absolute bottom-[-7px] w-8 h-8 rounded-full gradient group-hover:brightness-110"
+    >
+    </div>
+    <div
+        class="relative text-xl font-serif font-bold leading-5 text-shadow-in-dark-mode"
+    >
+        Iwanicki
     </div>
 </a>
-
-<style>
-    a {
-        text-decoration: none;
-
-        &:hover::after {
-            display: none;
-        }
-    }
-
-    .logo {
-        position: relative;
-
-        @media screen and (min-width: 640px) {
-            &:hover {
-                .circle {
-                    filter: brightness(110%);
-                }
-            }
-        }
-    }
-
-    .text {
-        font-family: "Merriweather", serif;
-        font-weight: 700;
-        font-style: normal;
-        font-size: 20px;
-        line-height: 1;
-        position: relative;
-        text-shadow: 1px 1px 2px transparent;
-        transition: var(--transition-color-text-shadow);
-    }
-
-    :global(.dark) .text {
-        text-shadow: 1px 1px 2px var(--color-black);
-    }
-
-    .circle {
-        position: absolute;
-        border-radius: 100%;
-        width: 32px;
-        height: 32px;
-        bottom: -7px;
-    }
-</style>

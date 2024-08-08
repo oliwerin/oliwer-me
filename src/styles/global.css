@@ -1,276 +1,103 @@
-:root {
-    /* https://colorhunt.co/palette/eeedebe0ccbe7472643c3633 */
-    /* --color-black: rgb(60, 54, 51);
-    --color-accent-1: rgb(224, 204, 190);
-    --color-accent-2: rgb(238, 237, 235);
-    --color-white: rgb(238, 237, 235); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    /* https://colorhunt.co/palette/f7f7f7eeeeee393e46929aab */
-    --color-black: rgb(57, 62, 70);
-    --color-accent-1: rgb(238, 238, 238);
-    --color-accent-2: rgb(146, 154, 171);
-    --color-white: rgb(247, 247, 247);
-
-    --spacing-1: 4px;
-    --spacing-1_5: 6px;
-    --spacing-2: 8px;
-    --spacing-3: 12px;
-    --spacing-4: 16px;
-    --spacing-5: 20px;
-    --spacing-6: 24px;
-    --spacing-10: 40px;
-
-    --breakpoint: 640px;
-
-    --border-radius-sm: 2px;
-    --border-radius-md: 4px;
-    --border-radius-lg: 6px;
-
-    --transition-color: color 0.2s ease-in;
-    --transition-bg-color: background-color 0.2s ease-in;
-    --transition-bg-filter: background, filter 0.2s ease-in;
-    --transition-box-shadow: box-shadow 0.2s ease-in;
-    --transition-color-text-shadow: color, text-shadow 0.2s ease-in;
-    --transition-color-border-color-box-shadow: color, border-color,
-        box-shadow 0.2s ease-in;
-    --transition-stroke: stroke 0.2s ease-in;
-    --transition-top: top 0.2s ease-in;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    background-color: var(--color-white);
-    font-family: "Karla", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--color-black);
-    min-height: 100%;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    transition: var(--transition-bg-color);
-    overflow-y: scroll !important;
-
-    &.dark {
-        background-color: var(--color-black);
-        color: var(--color-white);
+@layer utilities {
+    .gradient {
+        @apply bg-gradient-to-r
+        from-accent-2
+        to-accent-1 dark:to-black
+        hover:brightness-110;
     }
 
-    &:has(dialog[open]) {
-        overflow: hidden;
+    .text-shadow-in-dark-mode {
+        @apply text-shadow dark:text-shadow-dark
+        transition-all duration-200 ease-in;
+    }
+
+    /* To avoid flickering when the theme changes right after the page has loaded */
+    .css-transitions-only-after-page-load * {
+        @apply !transition-none;
     }
 }
 
-.css-transitions-only-after-page-load {
-    * {
-        transition: none !important;
-    }
-}
+@layer base {
+    html {
+        @apply flex
+        w-full min-h-full
+        !overflow-y-scroll
+        bg-white dark:bg-black
+        text-black dark:text-white
+        font-sans font-normal
+        transition-colors duration-200 ease-in
 
-body {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: center;
-    margin: 0;
-    padding: 0 var(--spacing-6);
-}
-
-main {
-    width: 100%;
-    max-width: var(--breakpoint);
-}
-
-h1 {
-    margin: 0 0 var(--spacing-4);
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 32px;
-    transition: var(--transition-color);
-    color: var(--color-black);
-
-    .dark & {
-        color: var(--color-white);
-    }
-}
-
-h2 {
-    margin: 0 0 var(--spacing-4);
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 24px;
-    transition: var(--transition-color);
-    color: var(--color-black);
-
-    .dark & {
-        color: var(--color-white);
-    }
-}
-
-h3 {
-    margin: 0;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 18px;
-    transition: var(--transition-color);
-    color: var(--color-black);
-
-    .dark & {
-        color: var(--color-white);
-    }
-}
-
-a {
-    display: inline-block;
-    color: var(--color-black);
-    position: relative;
-    transition: var(--transition-color);
-
-    &:hover {
-        @media screen and (min-width: 640px) {
-            &::after {
-                content: "";
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 1px;
-                top: 50%;
-                left: 0;
-                background: var(--color-black);
-            }
-        }
+        has-[dialog[open]]:overflow-hidden;
     }
 
-    .dark & {
-        color: var(--color-white);
-
-        &:hover {
-            @media screen and (min-width: 640px) {
-                &::after {
-                    background-color: var(--color-white);
-                }
-            }
-        }
-    }
-}
-
-button,
-.button {
-    display: inline-block;
-    padding: 0;
-    border: none;
-    background: transparent;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-black);
-    color: var(--color-black);
-    border-color: var(--color-black);
-    padding: var(--spacing-2);
-    margin: 0;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 16px;
-    transition: var(--transition-color-border-color-box-shadow);
-    text-decoration: none;
-
-    &:hover {
-        cursor: pointer;
-
-        @media screen and (min-width: 640px) {
-            text-decoration: none;
-            box-shadow: 0px 0px 4px 0px var(--color-accent-2);
-
-            &::after {
-                display: none;
-            }
-        }
+    body {
+        @apply flex flex-col grow items-center
+        px-6 sm:px-10;
     }
 
-    .dark & {
-        color: var(--color-white);
-        border-color: var(--color-white);
-
-        &:hover {
-            @media screen and (min-width: 640px) {
-                box-shadow: 0px 0px 4px 0px var(--color-accent-1);
-            }
-        }
-    }
-}
-
-p {
-    font-size: 18px;
-    margin: 0 0 var(--spacing-4);
-    line-height: 1.3;
-    transition: var(--transition-color);
-
-    &:has(em) {
-        padding-bottom: var(--spacing-4);
-        position: relative;
-        isolation: isolate;
-
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            bottom: 0;
-            height: 4px;
-            width: 120px;
-            background: linear-gradient(
-                45deg,
-                var(--color-accent-2),
-                var(--color-white)
-            );
-        }
+    main {
+        @apply w-full max-w-screen-sm;
     }
 
-    + h2 {
-        margin-top: var(--spacing-6);
-    }
-}
-
-.dark p:has(em)::after {
-    background: linear-gradient(
-        135deg,
-        var(--color-accent-2),
-        var(--color-black)
-    );
-}
-
-em {
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 20px;
-}
-
-.gradient {
-    transition: var(--transition-bg-filter);
-
-    background: linear-gradient(
-        45deg,
-        var(--color-accent-2),
-        var(--color-white)
-    );
-
-    &:hover {
-        @media screen and (min-width: 640px) {
-            filter: brightness(110%);
-        }
+    h1 {
+        @apply mb-4
+        text-3xl text-black dark:text-white
+        font-serif font-bold
+        transition-colors duration-200 ease-in;
     }
 
-    .dark & {
-        background: linear-gradient(
-            135deg,
-            var(--color-accent-2),
-            var(--color-black)
-        );
+    h2 {
+        @apply mb-4
+        text-2xl text-black dark:text-white
+        font-serif font-bold
+        transition-colors duration-200 ease-in;
+    }
+
+    h3 {
+        @apply text-lg text-black dark:text-white
+        font-serif font-bold
+        transition-colors duration-200 ease-in;
+    }
+
+    p {
+        @apply mb-4
+        text-lg text-black dark:text-white
+        font-sans font-normal
+        transition-colors duration-200 ease-in
+
+        has-[em]:relative
+        has-[em]:pb-4
+
+        has-[em]:after:absolute has-[em]:after:bottom-0
+        has-[em]:after:block
+        has-[em]:after:w-32 has-[em]:after:h-1
+        has-[em]:after:gradient
+        has-[em]:after:hover:brightness-100;
+    }
+
+    em {
+        @apply text-xl
+        font-serif font-bold
+        not-italic;
+    }
+
+    a {
+        @apply relative
+        inline-block
+        text-black dark:text-white
+        underline
+        transition-colors duration-200 ease-in
+
+
+        after:absolute after:top-1/2 after:left-0
+        after:hidden
+        after:w-full after:h-px
+        after:bg-black dark:after:bg-white
+
+        sm:after:hover:block;
     }
 }
