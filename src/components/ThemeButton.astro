@@ -3,41 +3,12 @@
 ---
 
 <button
-    class="theme-button"
+    class="relative w-4 h-8 rounded-md bg-black dark:bg-white transition-colors duration-200 ease-in"
     aria-label="Toggle theme"
     title="Toggle theme"
-    data-theme-button><div class="handle"></div></button
+    data-theme-button
+    ><div
+        class="absolute w-[10px] h-[10px] top-[18px] dark:top-[3px] left-[3px] rounded-full bg-white dark:bg-black transition-all duration-200 ease-in"
+    >
+    </div></button
 >
-
-<style>
-    .theme-button {
-        height: 32px;
-        width: 16px;
-        border: none;
-        position: relative;
-        background-color: var(--color-black);
-        transition: var(--transition-top);
-    }
-
-    .handle {
-        position: absolute;
-        top: 18px;
-        left: 3px;
-        width: 10px;
-        height: 10px;
-        border-radius: var(--border-radius-md);
-        background-color: var(--color-white);
-        transition: top 0.2s ease-in;
-    }
-
-    :global(.dark) {
-        .theme-button {
-            background-color: var(--color-white);
-        }
-
-        .handle {
-            top: 3px;
-            background-color: var(--color-black);
-        }
-    }
-</style>

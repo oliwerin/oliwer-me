@@ -17,6 +17,7 @@ const { frontmatter } = Astro.props;
     <p class="text-base italic">
         Written by {frontmatter.author}, {frontmatter.pubDate.slice(0, 10)}
     </p>
+
     <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
 
     <slot />
@@ -31,3 +32,12 @@ const { frontmatter } = Astro.props;
         }
     </ul> -->
 </BaseLayout>
+
+<!-- TODO: figure out how to do it in Tailwind -->
+<style>
+    p {
+        + h2 {
+            margin-top: var(--spacing-6);
+        }
+    }
+</style>

@@ -1,11 +1,8 @@
 import { Fragment } from "react";
-import cx from "classnames";
 
 import type { Point, SnakePosition } from "../../types/types";
 import { GAME_AREA_SIZE } from "../../constants/constants";
 import { doesSnakePositionContainPoint } from "../../utils/utils";
-
-import "./GameArea.css";
 
 type Props = {
   isGameStopped: boolean;
@@ -16,9 +13,7 @@ type Props = {
 function GameArea({ isGameStopped, snakePosition, foodPosition }: Props) {
   return (
     <div
-      className={cx("gameArea", {
-        ["gameStopped"]: isGameStopped,
-      })}
+      className={`relative w-full h-full bg-white dark:bg-black ${isGameStopped ? "blur-sm" : ""}`}
     >
       {/* Todo: optimise the number of rendered elements */}
       {[...Array(GAME_AREA_SIZE).keys()].map((_, x) => (
@@ -31,7 +26,7 @@ function GameArea({ isGameStopped, snakePosition, foodPosition }: Props) {
                   top: `${y}rem`,
                   left: `${x}rem`,
                 }}
-                className="boardSegment"
+                className={`absolute w-4 h-4 bg-black dark:bg-white`}
               />
             ) : null,
           )}
@@ -43,7 +38,7 @@ function GameArea({ isGameStopped, snakePosition, foodPosition }: Props) {
             top: `${foodPosition.y}rem`,
             left: `${foodPosition.x}rem`,
           }}
-          className="snakeFood"
+          className={`absolute w-4 h-4 bg-accent-2`}
         />
       )}
     </div>

@@ -3,7 +3,7 @@
 ---
 
 <a
-    class="rss-link"
+    class="w-8 h-8 border-2 border-solid border-black dark:border-white rounded transition-colors duration-200 ease-in after:!hidden"
     title="RSS feed"
     aria-label="RSS feed"
     href="/rss.xml"
@@ -14,6 +14,7 @@
         viewBox="0 0 33 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        class="absolute left-[-1px] bottom-[-1px] w-7 h-7 fill-black dark:fill-white transition-all duration-200 ease-in"
     >
         <mask
             id="mask0_169_13"
@@ -35,52 +36,3 @@
         </g>
     </svg>
 </a>
-
-<style>
-    .rss-link {
-        position: relative;
-        border: 2px solid var(--color-black);
-        border-radius: var(--border-radius-md);
-        height: 32px;
-        width: 32px;
-
-        transition: var(--transition-color-border-color-box-shadow);
-        display: block;
-
-        &:hover {
-            @media screen and (min-width: 640px) {
-                box-shadow: 0px 0px 4px 0px var(--color-accent-2);
-
-                &::after {
-                    display: none;
-                }
-            }
-        }
-
-        svg {
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            height: 32px;
-            width: 32px;
-            fill: var(--color-black);
-            transition: var(--transition-stroke);
-        }
-    }
-
-    :global(.dark) {
-        .rss-link {
-            border-color: var(--color-white);
-
-            &:hover {
-                @media screen and (min-width: 640px) {
-                    box-shadow: 0px 0px 4px 0px var(--color-accent-2);
-                }
-            }
-
-            svg {
-                fill: var(--color-white);
-            }
-        }
-    }
-</style>

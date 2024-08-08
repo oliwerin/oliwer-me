@@ -2,18 +2,18 @@ import { GameArea } from "./components";
 import { useRunGame } from "./hooks/hooks";
 import { Button } from "./components/index";
 
-import "./SnakeGame.css";
-
 function SnakeGame() {
   const {
     hasGameStarted,
+    // TODO: Add pause UI
     // isGamePaused,
     isGameStopped,
     snakePosition,
     foodPosition,
     swipeHandlers,
     setHasGameStarted,
-    // setIsGamePaused,
+    // TODO: Add pause UI
+    // isGamePaused,
     hasGameBeenPlayed,
     setHasGameBeenPlayed,
   } = useRunGame();
@@ -21,33 +21,38 @@ function SnakeGame() {
   const score = snakePosition.length - 1;
 
   return (
-    <div className="snakeGame">
-      <div {...swipeHandlers} className="gameContainer">
-        {isGameStopped && <div className="overlay" />}
-
+    <div className="relative w-[320px] h-[320px] rounded-md overflow-hidden">
+      <div {...swipeHandlers} className="relative w-full h-full">
         <GameArea
           isGameStopped={isGameStopped}
           snakePosition={snakePosition}
           foodPosition={foodPosition}
         />
 
-        {!hasGameStarted && (
-          <div className="controls">
-            {hasGameBeenPlayed && (
-              <>
-                <p>Game over</p>
-                <p>
-                  You scored {score} {score === 1 ? "point" : "points"}
-                </p>
-              </>
+        {isGameStopped && (
+          <div className="absolute top-0 flex items-center justify-center w-full h-full">
+            {!hasGameStarted && (
+              <div className="flex flex-col items-center justify-between">
+                {hasGameBeenPlayed && (
+                  <>
+                    <p className="font-serif text-white dark:text-black mb-1">
+                      Game over
+                    </p>
+                    <p className="font-serif text-white dark:text-black mb-3">
+                      You scored {score} {score === 1 ? "point" : "points"}
+                    </p>
+                  </>
+                )}
+
+                <Button
+                  label={hasGameBeenPlayed ? "Play again" : "Play"}
+                  onClick={() => {
+                    setHasGameStarted(true);
+                    setHasGameBeenPlayed(true);
+                  }}
+                />
+              </div>
             )}
-            <Button
-              label={hasGameBeenPlayed ? "Play again" : "Play"}
-              onClick={() => {
-                setHasGameStarted(true);
-                setHasGameBeenPlayed(true);
-              }}
-            />
           </div>
         )}
       </div>
