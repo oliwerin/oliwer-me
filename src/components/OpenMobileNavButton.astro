@@ -1,0 +1,15 @@
+---
+import OpenDialogButton from "./OpenDialogButton.astro";
+---
+
+<OpenDialogButton
+    dialogId="mobile-nav-dialog"
+    ariaLabel="Open navigation"
+    classes="flex flex-col justify-center gap-2 w-8 h-8 sm:hidden"
+>
+    {
+        Array.from({ length: 3 }).map(() => (
+            <div class="w-8 h-[3px] rounded bg-black dark:bg-white" />
+        ))
+    }
+</OpenDialogButton>

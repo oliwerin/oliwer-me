@@ -44,49 +44,6 @@
     }
 }
 
-button {
-    display: inline-block;
-    padding: 0;
-    border: none;
-    background: transparent;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-black);
-    color: var(--color-black);
-    border-color: var(--color-black);
-    padding: var(--spacing-2);
-    margin: 0;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 16px;
-    transition: var(--transition-color-border-color-box-shadow);
-    text-decoration: none;
-
-    &:hover {
-        cursor: pointer;
-
-        @media screen and (min-width: 640px) {
-            text-decoration: none;
-            box-shadow: 0px 0px 4px 0px var(--color-accent-2);
-
-            &::after {
-                display: none;
-            }
-        }
-    }
-
-    .dark & {
-        color: var(--color-white);
-        border-color: var(--color-white);
-
-        &:hover {
-            @media screen and (min-width: 640px) {
-                box-shadow: 0px 0px 4px 0px var(--color-accent-1);
-            }
-        }
-    }
-}
-
 .button {
     display: inline-block;
     padding: 0;

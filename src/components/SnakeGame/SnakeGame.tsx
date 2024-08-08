@@ -22,18 +22,6 @@ function SnakeGame() {
 
   return (
     <div className="snakeGame">
-      <h2>The Snake game</h2>
-
-      <p>
-        Maneuver the snake around the screen to consume food, while avoiding
-        collisions with the screen edges and the snake's own body.
-      </p>
-
-      <p>
-        <b>Controls:</b> use ←, ↑, →, ↓ keyboard buttons or swipe gestures to
-        maneuver the snake
-      </p>
-
       <div {...swipeHandlers} className="gameContainer">
         {isGameStopped && <div className="overlay" />}
 
@@ -63,13 +51,6 @@ function SnakeGame() {
           </div>
         )}
       </div>
-
-      <p>
-        <i>
-          I've always been fond of video games. Here's a&nbsp;small tribute to
-          the game many of us enjoyed as kids.
-        </i>
-      </p>
     </div>
   );
 }

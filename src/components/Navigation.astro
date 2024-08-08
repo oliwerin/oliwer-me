@@ -6,7 +6,10 @@ const navItems = [
 ];
 ---
 
-<ul class="flex flex-col items-center gap-5 w-full sm:flex-row sm:w-auto">
+<ul
+    class="flex flex-col items-center gap-5 w-full sm:flex-row sm:w-auto"
+    data-nav
+>
     {
         navItems.map(([url, label]) => (
             <li>
@@ -22,13 +25,11 @@ const navItems = [
 </ul>
 
 <script>
-    document
-        .querySelectorAll("body > header nav ul > li > a")
-        .forEach((nav) => {
-            if (nav.pathname === window.location.pathname) {
-                nav.closest("li").classList.add("font-bold");
-            } else {
-                nav.closest("li").classList.remove("font-bold");
-            }
-        });
+    document.querySelectorAll("ul[data-nav] > li > a").forEach((nav) => {
+        if (nav.pathname === window.location.pathname) {
+            nav.closest("li").classList.add("font-bold");
+        } else {
+            nav.closest("li").classList.remove("font-bold");
+        }
+    });
 </script>

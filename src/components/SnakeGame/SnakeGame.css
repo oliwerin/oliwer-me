@@ -1,29 +1,6 @@
 .snakeGame {
     width: 320px;
 
-    h2 {
-        display: none;
-
-        @media screen and (min-width: 640px) {
-            & {
-                display: block;
-            }
-        }
-    }
-
-    p {
-        color: var(--color-black);
-        font-size: 16px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        .dark & {
-            color: var(--color-white);
-        }
-    }
-
     .controls {
         position: absolute;
         top: 50%;
@@ -47,15 +24,10 @@
 
         p {
             font-weight: 500;
-            color: var(--color-white);
             margin-bottom: var(--spacing-2);
 
             &:last-of-type {
                 margin-bottom: var(--spacing-4);
-            }
-
-            .dark & {
-                color: var(--color-black);
             }
         }
     }

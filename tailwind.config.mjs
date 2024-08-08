@@ -9,6 +9,9 @@ export default {
         DEFAULT: "1px 1px 2px transparent",
         dark: "1px 1px 2px rgb(57, 62, 70)",
       },
+      rotate: {
+        315: "315deg",
+      },
     },
     colors: {
       black: "rgb(57, 62, 70)",

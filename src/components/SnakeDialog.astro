@@ -1,182 +1,29 @@
 ---
+import Dialog from "./Dialog.astro";
 import SnakeGame from "./SnakeGame/SnakeGame";
 ---
 
-<dialog id="snake-dialog">
-    <div class="snake-dialog-content">
-        <div class="snake-dialog-header">
-            <h2>The Snake game</h2>
+<Dialog dialogId="snake-dialog">
+    <h2>The Snake game</h2>
 
-            <button
-                class="close-snake-dialog-button"
-                aria-label="Close dialog"
-                autofocus
-            >
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-        </div>
-        <div class="snake-game-container">
-            <SnakeGame client:visible />
-        </div>
+    <p>
+        <i>
+            I've always been fond of video games. Here's a&nbsp;small tribute to
+            the game many of us enjoyed as kids.
+        </i>
+    </p>
+
+    <p>
+        Maneuver the snake around the screen to consume food, while avoiding
+        collisions with the screen edges and the snake's own body.
+    </p>
+
+    <p>
+        <b>Controls:</b> use ←, ↑, →, ↓ keyboard buttons or swipe gestures to maneuver
+        the snake.
+    </p>
+
+    <div class="flex justify-center">
+        <SnakeGame client:visible />
     </div>
-
-    <style>
-        dialog {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            max-height: 100%;
-            top: 0;
-            left: 0;
-            background-color: transparent;
-            align-items: start;
-            justify-content: center;
-            border: 0;
-            margin: 0;
-            transition: var(--transition-bg-color);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            padding: 0;
-            overscroll-behavior: none;
-
-            &[open] {
-                position: fixed;
-                display: flex;
-            }
-
-            @media screen and (min-width: 640px) and (min-height: 760px) {
-                & {
-                    align-items: center;
-                }
-            }
-        }
-
-        .snake-dialog-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--spacing-6);
-            width: 320px;
-
-            @media screen and (min-width: 640px) {
-                & {
-                    width: 100%;
-                    justify-content: end;
-                }
-            }
-
-            h2 {
-                margin-bottom: 0;
-
-                @media screen and (min-width: 640px) {
-                    & {
-                        display: none;
-                    }
-                }
-            }
-        }
-
-        .snake-dialog-content {
-            width: 100%;
-            padding: var(--spacing-6);
-            background-color: var(--color-white);
-            border-radius: var(--border-radius-lg);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overscroll-behavior: none;
-
-            @media screen and (min-width: 640px) {
-                & {
-                    width: 520px;
-                }
-            }
-        }
-
-        .close-snake-dialog-button {
-            height: 26px;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-            overflow: hidden;
-
-            &:hover {
-                background: none;
-                box-shadow: none !important;
-            }
-        }
-
-        .line {
-            display: block;
-            width: 32px;
-            height: 3px;
-            margin-bottom: var(--spacing-2);
-            background-color: var(--color-black);
-            border-radius: var(--border-radius-lg);
-
-            &:first-child {
-                transform: rotate(45deg);
-                position: relative;
-                top: 1px;
-                margin: 0;
-            }
-
-            &:last-child {
-                transform: rotate(-45deg);
-                position: relative;
-                top: -2px;
-                margin: 0;
-            }
-        }
-
-        .snake-game-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 50px;
-        }
-
-        :global(.dark) {
-            .snake-dialog-content {
-                background-color: var(--color-black);
-            }
-
-            .line {
-                background-color: var(--color-white);
-            }
-        }
-    </style>
-
-    <script>
-        const snakeDialog = document.getElementById("snake-dialog");
-
-        const closeButton = snakeDialog.querySelector(
-            ".close-snake-dialog-button",
-        );
-
-        const close = () => {
-            const html = document.documentElement;
-            const scrollPosition = html.style.top.slice(1, -2);
-
-            html.style.position = "";
-            html.scrollTop = parseInt(scrollPosition);
-            snakeDialog.close();
-        };
-
-        closeButton.addEventListener("click", () => {
-            close();
-        });
-
-        closeButton.addEventListener("blur", () => {
-            closeButton.removeAttribute("style");
-        });
-
-        snakeDialog.addEventListener("click", (event) => {
-            if (event.target.id === "snake-dialog") {
-                close();
-            }
-        });
-    </script>
-</dialog>
+</Dialog>
