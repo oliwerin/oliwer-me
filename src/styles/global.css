@@ -14,11 +14,6 @@
         @apply text-shadow dark:text-shadow-dark
         transition-all duration-200 ease-in;
     }
-
-    /* To avoid flickering when the theme changes right after the page has loaded */
-    .css-transitions-only-after-page-load * {
-        @apply !transition-none;
-    }
 }
 
 @layer base {

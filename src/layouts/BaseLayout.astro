@@ -221,3 +221,13 @@ const origin = Astro.site.origin;
         }, 200);
     });
 </script>
+
+<style>
+    .css-transitions-only-after-page-load {
+        transition: none !important;
+
+        * {
+            transition: none !important;
+        }
+    }
+</style>
