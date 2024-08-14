@@ -14,6 +14,11 @@
         @apply text-shadow dark:text-shadow-dark
         transition-all duration-200 ease-in;
     }
+
+    .box-shadow {
+        @apply sm:hover:shadow dark:sm:hover:shadow-dark
+        transition-all duration-200 ease-in;
+    }
 }
 
 @layer base {
