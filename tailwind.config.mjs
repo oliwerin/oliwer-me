@@ -9,6 +9,10 @@ export default {
         DEFAULT: "1px 1px 2px transparent",
         dark: "1px 1px 2px rgb(57, 62, 70)",
       },
+      boxShadow: {
+        DEFAULT: "0 0px 3px 2px rgb(146, 154, 171)",
+        dark: "0 0px 3px 1px rgb(238, 237, 235)",
+      },
       rotate: {
         315: "315deg",
       },
