@@ -95,10 +95,12 @@
 
 
         after:absolute after:top-1/2 after:left-0
-        after:hidden
-        after:w-full after:h-px
+        after:opacity-0
+        after:w-0 after:h-px
         after:bg-black dark:after:bg-white
+        after:transition-all after:duration-200 after:ease-in
 
-        sm:after:hover:block;
+        sm:after:hover:w-full
+        sm:after:hover:opacity-100;
     }
 }
